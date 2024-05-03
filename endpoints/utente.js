@@ -54,8 +54,8 @@ function endpoint(app, connpool) {
     });
 
 
-    app.get("/api/utenti/:1", (req, res) => {
-        var sql = "select * from utente where idUtente = 1"
+    app.get("/api/utenti/:id", (req, res) => {
+        var sql = "select * from utente where idUtente = ?"
         var params = [req.params.id]
         connpool.query(sql, params, (err, rows) => {
             if (err) {
@@ -70,16 +70,16 @@ function endpoint(app, connpool) {
     });
 
 
-    app.put("/api/utenti/:1", (req, res) => {
+    app.put("/api/utenti/:id", (req, res) => {
         var data = {
             username: req.body.username,
             psw: req.body.username,
         }
         connpool.execute(
             `UPDATE utente set 
-               username = COALESCE(1,username), 
-               psw = COALESCE(1,psw) 
-               WHERE idUtente = 1`,
+               username = COALESCE(?,username), 
+               psw = COALESCE(?,psw) 
+               WHERE idUtente = ?`,
             [data.username, data.psw, req.params.id],
             function (err, result) {
                 if (err){
@@ -97,9 +97,9 @@ function endpoint(app, connpool) {
 
 
 
-    app.delete("/api/utenti/:1", (req, res) => {
+    app.delete("/api/utenti/:id", (req, res) => {
         connpool.execute(
-            'DELETE FROM utente WHERE idUtente = 1',
+            'DELETE FROM utente WHERE idUtente = id',
             [req.params.id],
             function (err, result) {
                 if (err){

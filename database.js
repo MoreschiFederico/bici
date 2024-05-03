@@ -5,7 +5,7 @@
         host: "10.20.2.175",
         user: "tps",
         password: "ttppss",
-        database: "td"
+        database: "bici"
     }, { debug: true });
     
     connpool.query('SELECT 1 + 1 AS solution', function (error, results, fields) {

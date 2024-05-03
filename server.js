@@ -20,6 +20,7 @@ app.get("/", (req, res, next) => {
     res.json({"message":"Ok"})
 });
 
+require("./endpoints/tasks.js")(app,connpool)
 require("./endpoints/utente.js")(app,connpool)
 // Insert here other API endpoints
 
