@@ -99,7 +99,7 @@ function endpoint(app, connpool) {
 
     app.delete("/api/utenti/:id", (req, res) => {
         connpool.execute(
-            'DELETE FROM utente WHERE idUtente = id',
+            'DELETE FROM utente WHERE idUtente = ?',
             [req.params.id],
             function (err, result) {
                 if (err){
