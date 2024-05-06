@@ -1,4 +1,4 @@
-
+ HEAD
     const mysql = require('mysql2');
     const { HOST, USERNAME, PASSWORD, DBNAME, PORT } = process.env;
     console.log();
@@ -6,7 +6,7 @@
         host: "10.20.2.174",
         user: "tps",
         password: "ttppss",
-        database: "bici"
+        database: "bicigit "
     }, { debug: true });
     
     connpool.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
@@ -16,3 +16,9 @@
     
     
     module.exports = connpool;
+
+
+
+
+module.exports = connpool;
+ a2dd533 (prova)
