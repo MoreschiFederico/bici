@@ -1,4 +1,4 @@
- HEAD
+
     const mysql = require('mysql2');
     const { HOST, USERNAME, PASSWORD, DBNAME, PORT } = process.env;
     console.log();
