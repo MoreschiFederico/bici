@@ -19,7 +19,7 @@ function endpoint(app, connpool) {
             psw: req.body.status,
         }
 
-        var sql = 'INSERT INTO utente (username, psw) VALUES ("studente","studente")'
+        var sql = 'INSERT INTO utente (username, psw) VALUES (?,?)'
         var params = [data.description, data.status]
         connpool.query(sql, params, (error, results) => {
             if (error) {
