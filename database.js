@@ -3,7 +3,7 @@ const mysql = require('mysql2');
 const { HOST, USERNAME, PASSWORD, DBNAME, PORT } = process.env;
 console.log();
 const connpool = mysql.createPool({
-    host: "10.20.2.174",
+    host: "10.20.2.172",
     user: "tps",
     password: "ttppss",
     database: "bici"
