@@ -18,7 +18,3 @@ connpool.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
 module.exports = connpool;
 
 
-
-
-module.exports = connpool;
-
