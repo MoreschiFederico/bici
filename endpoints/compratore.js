@@ -96,7 +96,18 @@ function endpoint(app, connpool) {
 
     app.delete("/api/compratore/:id", (req, res) => {
         connpool.execute(
-    
+            'DELETE FROM utente WHERE idCompratore = ?',
+            [req.params.id],
+            function (err, result) {
+                if (err) {
+                    res.status(400).json({ "error": err.message })
+                    return;
+                }
+                res.json({ "message": "deleted", changes: result.affectedRows })
+            });
+    })
+
+
 }
 
 
